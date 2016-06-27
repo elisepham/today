@@ -1,0 +1,115 @@
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Register Page</title>
+		<meta name="viewport" content="width=device-width,
+		initial-scale=1">
+		<link rel="stylesheet" href="stylesheets/style.css">
+	</head>
+	<body ng-controller="RegisterController">
+		<form name="userForm">
+			<div id="container">
+				<table>
+					<tbody>
+						<tr>
+							<td><label class="required">First Name</label>
+								<span class="errorMsg" ng-show="userForm.firstName.$dirty && userForm.firstName.$error.required">
+									First name is required</span>
+								<input class="text-input" type="text" name="firstName" ng-model="firstName" required/>
+							</td>
+							
+							<td><label class="required">Last Name</label>
+								<span class="errorMsg" ng-show="userForm.lastName.$dirty && userForm.lastName.$error.required">
+									Last name is required</span>
+								<input type="text" class="text-input" name="lastName" ng-model="lastName" required />
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2><label class="required" >Company Name</label>
+								<span class="errorMsg" ng-show="userForm.companyName.$dirty && userForm.companyName.$error.required">
+									Company name is required</span>
+								<input type="text" class="text-input" name="companyName" ng-model="companyName" required/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2><label class="required">Work Email</label>
+								<span class="errorMsg" ng-show="userForm.email.$dirty && userForm.email.$error.required">
+									Email is required</span>
+								<span class="errorMsg" ng-show="userForm.email.$dirty && userForm.email.$error.email">
+									Email is invalid</span>
+								<input type="email" class="text-input" name="email" ng-model="email" required/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2><label class="required">Phone Number</label>
+								<span class="errorMsg" ng-show="userForm.phone.$dirty && userForm.phone.$error.required">
+									Phone number is required</span>
+								<span class="errorMsg" ng-show="userForm.phone.$dirty && userForm.phone.$error.pattern">
+									Phone number is invalid</span>
+								<input type="text" class="text-input"  ng-model="phone" name="phone" placeholder="Valid format: 000-000-0000"
+									ng-pattern = "/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/" required />
+							</td>
+						</tr>
+						<tr>
+							<td><label class="required">Country</label>
+								<select class="select-style" name="country" ng-options="country.id as country.name for country in countries"
+									ng-change="showUSStates()" ng-model="countryId"></select></td>
+							<td><label class="required">State</label>
+								<select class="select-style" ng-options="state for state in usStates" name="state" 
+									ng-model="state"></select></td>
+						</tr>
+						<tr>
+							<td><label class="required">Industry</label>
+								<select class="select-style" name="industry" ng-model="industry" ng-options="industry  for industry in industries"></select></td>
+							<td><label class="required">Zip/Postals</label>
+								<span class="errorMsg" ng-show="userForm.postal.$dirty && userForm.postal.$error.required">
+									Zip code is required</span>
+								<input type="text" class="text-input" name="postal"  ng-model="postal" required/>
+							</td>
+						</tr>
+						<tr>
+							<td><label class="required" for="password">Password</label>
+								<span class="errorMsg" ng-show="userForm.password.$dirty && userForm.password.$error.required">
+									Password is required</span>
+								<span class="errorMsg" ng-show="userForm.password.$dirty && (userForm.password.$error.minlength || userForm.password.$error.pattern)">
+									Password is invalid.</span>
+								<input type="password" class="text-input" name="password" ng-model="password" ng-minlength="8"
+									ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[`~!@#$%^&*.])/" required />
+							</td>
+							<td><label class="required" for="confirmPassword">Confirm Password</label>
+								<span class="errorMsg" ng-show="userForm.confirmPassword.$dirty && userForm.confirmPassword.$error.required">
+									Confirm Password is required</span>
+								<span class="errorMsg" ng-show="userForm.confirmPassword.$dirty && (userForm.confirmPassword.$error.minlength || userForm.confirmPassword.$error.pattern)">
+									Confirm Password is invalid.</span>
+
+								<input type="password" class="text-input"  name="confirmPassword" ng-model="confirmPassword"
+									ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[`~!@#$%^&*.])/" required />
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2><label>
+								<input type="checkbox" value="">Interested in becoming a partner</label></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="center">
+					By clicking register, you agree to Anomali's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>
+				</p>
+				<div class="center">
+					<input class="lrg-btn" type="submit" value="REGISTER" ng-disabled="userForm.$invalid"/>
+				</div>
+			</div>
+		</form>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
+		<script type = "text/javascript"  src="app.js"></script>
+		<script type="text/javascript" src="service/UtilService.js"></script>
+		<script type="text/javascript" src="controller/RegisterController.js"></script>
+		
+
+
+	</body>
+</html>

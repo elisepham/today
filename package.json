@@ -1,0 +1,24 @@
+{
+  "name": "login",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-resource": "^1.4.7",
+    "angular-route": "^1.4.7",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "^2.0.0",
+    "express": "~4.13.1",
+    "morgan": "^1.7.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "Hongngoc Pham",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,80 @@
+body {
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+}
+.center {
+	text-align: center;
+}
+#container {
+	border-width: 5px 10px;
+	border-style: solid;
+	margin: 4%;
+}
+span.errorMsg{
+	color:#ff4d4d;
+	font-size: .8em;
+}
+table {
+	width: 90%;
+	margin: 5% 0% 0% 5%;
+	border-spacing:20px;
+}
+
+label {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: .8em;
+	color: #323536;
+}
+
+label[class='required']::after {
+	content: " *";
+}
+
+input[type="checkbox"] {
+	font-weight: bold;
+	color-background: #6F736F;
+	text-transform: uppercase;
+}
+input.text-input{
+	height: 30px;
+	color: black;
+	margin-top: 5px;
+	width: 100%;
+}
+
+.select-style {
+	border: 1px solid #ccc;
+	width: 100%;
+	border-radius: 3px;
+	overflow: hidden;
+	height: 30px;
+	background: #fafafa no-repeat 90% 50%;
+	font-size:1em;
+	margin-top: 5px;
+}
+a {
+	color: #3399ff;
+	text-decoration: none
+}
+
+input[class="lrg-btn"] {
+	color: white;
+	background-color: #52A763;
+	border: none;
+	padding: 12px 25px;
+	text-decoration: none;
+	font-size: 1.2em;
+	margin: 12px 30px;
+}
+input.ng-valid.ng-dirty{	
+    border: thin solid #090;
+}
+input.ng-invalid{
+    border: thin solid #990000;
+    color:red;
+}
+input[type="submit"]:disabled {
+    background: #C3C8C9;
+    color:black;
+}
